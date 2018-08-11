@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.ragedunicorn.tools.maven</groupId>
+  <artifactId>rg-github-release</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <scm>
+    <developerConnection>scm:git:ssh://github.com/ragedunicorn/github-release-test</developerConnection>
+    <tag>rg-github-release-maven-plugin-0.0.1</tag>
+  </scm>
+
+
+  <modules>
+    <module>plugin</module>
+    <module>build-tools</module>
+  </modules>
+
+  <profiles>
+    <profile>
+      <id>development</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>plugin</module>
+        <module>build-tools</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>production</id>
+      <modules>
+        <module>plugin</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>example</id>
+      <modules>
+        <module>plugin</module>
+        <module>example</module>
+      </modules>
+    </profile>
+  </profiles>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>

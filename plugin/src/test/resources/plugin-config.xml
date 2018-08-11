@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ragedunicorn.tools.maven</groupId>
+  <artifactId>test</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Test</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.ragedunicorn.tools.maven</groupId>
+        <artifactId>rg-github-release-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <configuration>
+          <owner>ragedunicorn</owner>
+          <repository>github-release-test</repository>
+          <authToken>token</authToken>
+          <tagName>v0.0.1</tagName>
+          <name>example-release</name>
+          <targetCommitish>master</targetCommitish>
+          <body>release description overwritten by release notes</body>
+          <releaseNotes>src/test/resources/markdown-released.txt</releaseNotes>
+          <assets>
+            <asset>src/test/resources/asset1.txt</asset>
+            <asset>src/test/resources/asset2.txt</asset>
+          </assets>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

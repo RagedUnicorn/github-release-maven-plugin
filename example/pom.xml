@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>rg-github-release-example</artifactId>
+  <groupId>com.ragedunicorn.tools.maven</groupId>
+  <packaging>jar</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.ragedunicorn.tools.maven</groupId>
+        <artifactId>rg-github-release-maven-plugin</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <!-- info: maven executes executions in the same phase exactly as they are listed in the pom.xml -->
+        <executions>
+          <execution>
+            <id>default-cli</id>
+            <goals>
+              <goal>rg-github-release</goal>
+            </goals>
+            <phase>install</phase>
+            <configuration>
+              <owner>ragedunicorn</owner>
+              <repository>github-release-test</repository>
+              <server>github-oauth</server>
+              <tagName>v0.0.1</tagName>
+              <name>example-release</name>
+              <targetCommitish>master</targetCommitish>
+              <body>release description overwritten by release notes</body>
+              <releaseNotes>src/main/resources/release-notes-example.md</releaseNotes>
+              <assets>
+                <asset>src/main/resources/asset-plain-text-example.txt</asset>
+                <asset>src/main/resources/asset-zip-example.zip</asset>
+              </assets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- include for debugging -->
+  <dependencies>
+    <dependency>
+      <groupId>com.ragedunicorn.tools.maven</groupId>
+      <artifactId>rg-github-release-maven-plugin</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+</project>
