@@ -6,6 +6,7 @@
   <artifactId>rg-github-release</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <name>rg-github-release-maven-plugin</name>
 
   <scm>
     <developerConnection>scm:git:ssh://github.com/ragedunicorn/github-release-test</developerConnection>
