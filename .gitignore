@@ -29,7 +29,8 @@ Icon
 Thumbs.db
 
 # Idea
-.idea
+.idea/*
+!/.idea/runConfigurations
 *.iml
 *.iws
 *.ipr
