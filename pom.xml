@@ -9,7 +9,7 @@
   <name>rg-github-release-maven-plugin</name>
 
   <scm>
-    <developerConnection>scm:git:ssh://github.com/ragedunicorn/github-release-test</developerConnection>
+    <developerConnection>scm:git:ssh://github.com/ragedunicorn/rg-github-release-maven-plugin</developerConnection>
     <tag>rg-github-release-maven-plugin-0.0.1</tag>
   </scm>
 
