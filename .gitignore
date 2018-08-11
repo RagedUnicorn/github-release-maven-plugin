@@ -37,3 +37,6 @@ Thumbs.db
 
 # Maven
 target
+
+# Test resource
+!asset-zip-example.zip
