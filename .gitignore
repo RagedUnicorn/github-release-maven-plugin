@@ -30,7 +30,6 @@ Thumbs.db
 
 # Idea
 .idea/*
-!/.idea/runConfigurations
 *.iml
 *.iws
 *.ipr
