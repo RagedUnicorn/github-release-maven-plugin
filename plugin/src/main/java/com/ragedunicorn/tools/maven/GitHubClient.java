@@ -105,7 +105,7 @@ public class GitHubClient {
           + "repository and credentials");
     }
 
-    String processedPath = "";
+    String processedPath;
 
     processedPath = path.replace(":repo", repository);
     processedPath = processedPath.replace(":owner", owner);
