@@ -19,10 +19,6 @@
         <executions>
           <execution>
             <id>default-cli</id>
-            <goals>
-              <goal>rg-github-release</goal>
-            </goals>
-            <phase>install</phase>
             <configuration>
               <owner>ragedunicorn</owner>
               <repository>github-release-test</repository>
