@@ -36,7 +36,7 @@
           <dependency>
             <groupId>com.ragedunicorn.tools.maven</groupId>
             <artifactId>build-tools</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.1-SNAPSHOT</version>
           </dependency>
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
