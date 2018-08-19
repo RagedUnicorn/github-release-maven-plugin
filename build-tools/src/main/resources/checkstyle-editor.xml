@@ -236,7 +236,7 @@
   </module>
 
   <module name="Header">
-    <property name="headerFile" value="${checkstyle.header.file}"/>
+    <property name="headerFile" value="LICENSE.txt"/>
     <property name="fileExtensions" value="java"/>
     <property name="id" value="header"/>
   </module>

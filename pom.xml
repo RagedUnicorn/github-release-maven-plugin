@@ -13,6 +13,10 @@
     <tag>rg-github-release-maven-plugin-0.0.1</tag>
   </scm>
 
+  <properties>
+    <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
+    <checkstyle.header.location>LICENSE.txt</checkstyle.header.location>
+  </properties>
 
   <modules>
     <module>plugin</module>
@@ -46,11 +50,38 @@
   </profiles>
 
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5.3</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>com.ragedunicorn.tools.maven</groupId>
+            <artifactId>build-tools</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+          </dependency>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>8.2</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
