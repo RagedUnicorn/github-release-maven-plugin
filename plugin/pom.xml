@@ -28,22 +28,8 @@
         <artifactId>maven-plugin-plugin</artifactId>
         <version>3.5.2</version>
       </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <version>3.0.5</version>
-      </plugin>
     </plugins>
   </build>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jxr-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </reporting>
 
   <dependencies>
     <dependency>
