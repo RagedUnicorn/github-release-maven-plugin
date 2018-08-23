@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="rg-github-release-plugin-checkstyle[check]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="main-checkstyle[check]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -10,7 +10,6 @@
           </option>
           <option name="goals">
             <list>
-              <option value="clean" />
               <option value="checkstyle:checkstyle" />
             </list>
           </option>
@@ -19,7 +18,7 @@
             <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/plugin" />
+          <option name="workingDirPath" value="$PROJECT_DIR$" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>

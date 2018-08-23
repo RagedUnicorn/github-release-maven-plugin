@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="rg-github-release-plugin [install]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="main-findbugs[check]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -10,8 +10,8 @@
           </option>
           <option name="goals">
             <list>
-              <option value="clean" />
-              <option value="install" />
+              <option value="findbugs:findbugs" />
+              <option value="-X" />
             </list>
           </option>
           <option name="pomFileName" />
@@ -23,6 +23,8 @@
         </MavenRunnerParameters>
       </option>
     </MavenSettings>
-    <method />
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="main [install]" run_configuration_type="MavenRunConfiguration" />
+    </method>
   </configuration>
 </component>

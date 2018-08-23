@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="rg-github-release-plugin [test]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="plugin [test]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
