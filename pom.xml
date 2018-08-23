@@ -71,8 +71,8 @@
         <dependencies>
           <dependency>
             <groupId>com.ragedunicorn.tools.maven</groupId>
-            <artifactId>build-tools</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>maven-code-quality</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
           </dependency>
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
@@ -81,6 +81,33 @@
           </dependency>
         </dependencies>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.8</version>
+        <configuration>
+          <rulesets>
+            <ruleset>pmd-ruleset.xml</ruleset>
+          </rulesets>
+          <printFailingErrors>true</printFailingErrors>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.ragedunicorn.tools.maven</groupId>
+            <artifactId>maven-code-quality</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+          </dependency>
+        </dependencies>
+      </plugin>
     </plugins>
   </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
