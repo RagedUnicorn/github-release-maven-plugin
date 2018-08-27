@@ -10,8 +10,7 @@
           </option>
           <option name="goals">
             <list>
-              <option value="clean" />
-              <option value="install" />
+              <option value="rg-github-release:rg-github-release" />
             </list>
           </option>
           <option name="pomFileName" />

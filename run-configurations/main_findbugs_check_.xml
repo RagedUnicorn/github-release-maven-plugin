@@ -11,7 +11,6 @@
           <option name="goals">
             <list>
               <option value="findbugs:findbugs" />
-              <option value="-X" />
             </list>
           </option>
           <option name="pomFileName" />
@@ -19,7 +18,7 @@
             <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/plugin" />
+          <option name="workingDirPath" value="$PROJECT_DIR$" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>

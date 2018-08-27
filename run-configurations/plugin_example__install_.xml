@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="plugin [test]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="plugin-example [install]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -11,7 +11,7 @@
           <option name="goals">
             <list>
               <option value="clean" />
-              <option value="test" />
+              <option value="install" />
             </list>
           </option>
           <option name="pomFileName" />
@@ -19,10 +19,12 @@
             <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/plugin" />
+          <option name="workingDirPath" value="$PROJECT_DIR$/example" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>
-    <method v="2" />
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" />
+    </method>
   </configuration>
 </component>
