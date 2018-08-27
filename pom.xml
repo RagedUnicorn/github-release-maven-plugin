@@ -11,7 +11,6 @@
 
   <scm>
     <developerConnection>scm:git:ssh://github.com/ragedunicorn/rg-github-release-maven-plugin</developerConnection>
-    <tag>rg-github-release-maven-plugin-0.0.1</tag>
   </scm>
 
   <properties>
@@ -50,6 +49,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.0.0</version>
         <dependencies>
           <dependency>
             <groupId>com.ragedunicorn.tools.maven</groupId>
@@ -77,9 +77,20 @@
           <dependency>
             <groupId>com.ragedunicorn.tools.maven</groupId>
             <artifactId>maven-code-quality</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
           </dependency>
         </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.5</version>
+        <!--
+        <configuration>
+          <excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
+          <includeFilterFile>findbugs-include.xml</includeFilterFile>
+        </configuration>
+        -->
       </plugin>
     </plugins>
   </build>
