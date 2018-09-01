@@ -89,7 +89,7 @@ public class GitHubClient {
    */
   public CloseableHttpClient getHttpClient() {
     if (token == null || token.isEmpty() || owner == null || owner.isEmpty() || repository == null
-      || repository.isEmpty()) {
+        || repository.isEmpty()) {
       throw new IllegalStateException("GitHub client is in invalid state. Make sure to set owner, "
           + "repository and credentials");
     }

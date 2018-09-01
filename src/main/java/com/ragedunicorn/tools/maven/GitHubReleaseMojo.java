@@ -35,7 +35,6 @@ import org.apache.maven.settings.Server;
 import org.apache.maven.settings.Settings;
 
 
-
 @Mojo(name = "rg-github-release")
 public class GitHubReleaseMojo extends AbstractMojo {
   // owner of the repository
@@ -105,7 +104,7 @@ public class GitHubReleaseMojo extends AbstractMojo {
    * @param gitHubClient The GitHub client
    * @return The response object of the create release endpoint
    * @throws MojoExecutionException If any exception happens during the execution of the release
-   *     service
+   *                                service
    */
   private GitHubApiRelease createRelease(GitHubClient gitHubClient) throws MojoExecutionException {
     final ReleaseService releaseService = new ReleaseService(gitHubClient);
@@ -126,9 +125,9 @@ public class GitHubReleaseMojo extends AbstractMojo {
    * Upload asset(s) to previously created GitHub release.
    *
    * @param gitHubClient The GitHub client
-   * @param uploadUrl The url to use to upload the assets
+   * @param uploadUrl    The url to use to upload the assets
    * @throws MojoExecutionException If any exception happens during the execution of the asset
-   *     service
+   *                                service
    */
   private void uploadAssets(GitHubClient gitHubClient, String uploadUrl)
       throws MojoExecutionException {

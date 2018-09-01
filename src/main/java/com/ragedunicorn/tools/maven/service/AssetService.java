@@ -99,7 +99,7 @@ public class AssetService {
                                      String assetPath) throws MojoExecutionException {
 
     Path path = Paths.get(assetPath);
-    Path fileName =  path.getFileName();
+    Path fileName = path.getFileName();
 
     if (fileName == null) {
       throw new MojoExecutionException("Failed to retrieve filename for asset - " + assetPath);
