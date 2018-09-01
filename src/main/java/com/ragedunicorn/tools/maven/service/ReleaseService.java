@@ -53,9 +53,9 @@ import org.apache.maven.plugin.MojoExecutionException;
 public class ReleaseService {
   private static final String ENDPOINT = "/repos/:owner/:repo/releases";
 
-  private DefaultLog logger = new DefaultLog();
+  private final DefaultLog logger = new DefaultLog();
 
-  private GitHubClient gitHubClient;
+  private final GitHubClient gitHubClient;
 
   public ReleaseService(GitHubClient gitHubClient) {
     this.gitHubClient = gitHubClient;

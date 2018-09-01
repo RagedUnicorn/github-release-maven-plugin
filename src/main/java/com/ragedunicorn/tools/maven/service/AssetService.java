@@ -51,9 +51,9 @@ import org.apache.maven.plugin.MojoExecutionException;
 
 
 public class AssetService {
-  private DefaultLog logger = new DefaultLog();
+  private final DefaultLog logger = new DefaultLog();
 
-  private GitHubClient gitHubClient;
+  private final GitHubClient gitHubClient;
 
   public AssetService(GitHubClient gitHubClient) {
     this.gitHubClient = gitHubClient;

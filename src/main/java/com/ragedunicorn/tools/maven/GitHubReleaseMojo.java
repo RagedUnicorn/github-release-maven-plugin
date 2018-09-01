@@ -28,11 +28,9 @@ import com.ragedunicorn.tools.maven.service.AssetService;
 import com.ragedunicorn.tools.maven.service.ReleaseService;
 
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Server;
 import org.apache.maven.settings.Settings;
 
@@ -87,12 +85,6 @@ public class GitHubReleaseMojo extends AbstractMojo {
 
   @Parameter(defaultValue = "${settings}", readonly = true)
   private Settings settings;
-
-  @Parameter(defaultValue = "${project}", readonly = true)
-  private MavenProject project;
-
-  @Parameter(defaultValue = "${mojoExecution}", readonly = true)
-  private MojoExecution execution;
 
   /**
    * Plugin execution callback.

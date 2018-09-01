@@ -26,6 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+@SuppressWarnings("PMD.TooManyFields")
 public class GitHubApiRelease {
   private String url;
 

@@ -49,10 +49,6 @@ public class GitHubClient {
   // oauth token
   private String token;
 
-  public GitHubClient() {
-    //no op
-  }
-
   public static String getBaseUri() {
     return baseUri;
   }
