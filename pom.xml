@@ -9,10 +9,6 @@
   <packaging>maven-plugin</packaging>
   <name>rg-github-release-plugin</name>
 
-  <scm>
-    <developerConnection>scm:git:ssh://github.com/ragedunicorn/rg-github-release-maven-plugin</developerConnection>
-  </scm>
-
   <properties>
     <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
     <checkstyle.header.location>LICENSE.txt</checkstyle.header.location>
