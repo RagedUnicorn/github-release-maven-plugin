@@ -97,7 +97,13 @@ public class AssetService {
                                      String assetPath) throws MojoExecutionException {
 
     Path path = Paths.get(assetPath);
-    String endpointUrl = prepareEndpointUrl(uploadUrl, path.getFileName().toString());
+    Path fileName =  path.getFileName();
+
+    if (fileName == null) {
+      throw new MojoExecutionException("Failed to retrieve filename for asset - " + assetPath);
+    }
+
+    String endpointUrl = prepareEndpointUrl(uploadUrl, fileName.toString());
 
     HttpPost httpPost = new HttpPost(endpointUrl);
     httpPost.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM);
