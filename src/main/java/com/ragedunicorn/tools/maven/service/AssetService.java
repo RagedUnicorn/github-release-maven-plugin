@@ -73,8 +73,10 @@ public class AssetService {
     for (String asset : assets) {
       GitHubApiAsset response = uploadAsset(httpClient, uploadUrl, asset);
 
-      logger.info("Uploaded new asset:");
-      logger.info("Name: " + response.getName());
+      if (logger.isInfoEnabled()) {
+        logger.info("Uploaded new asset:");
+        logger.info("Name: " + response.getName());
+      }
     }
 
     try {

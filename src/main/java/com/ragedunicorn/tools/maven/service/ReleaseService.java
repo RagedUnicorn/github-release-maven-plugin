@@ -78,7 +78,9 @@ public class ReleaseService {
 
     HttpPost httpPost = new HttpPost();
     URI preparedEndpointUrl = gitHubClient.prepareEndpointUri(ENDPOINT);
-    logger.debug("Endpoint Uri: " + preparedEndpointUrl.getPath());
+    if (logger.isDebugEnabled()) {
+      logger.debug("Endpoint Uri: " + preparedEndpointUrl.getPath());
+    }
     httpPost.setURI(preparedEndpointUrl);
 
     httpPost.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
@@ -88,10 +90,13 @@ public class ReleaseService {
       CloseableHttpResponse response = httpClient.execute(httpPost);
       githubApiRelease = responseHandler(response);
 
-      logger.info("Created a new release:");
-      logger.info("Tag name: " + githubApiRelease.getTagName());
-      logger.info("Name: " + githubApiRelease.getName());
-      logger.info("Url: " + githubApiRelease.getUrl());
+      if (logger.isInfoEnabled()) {
+        logger.info("Created a new release:");
+        logger.info("Tag name: " + githubApiRelease.getTagName());
+        logger.info("Name: " + githubApiRelease.getName());
+        logger.info("Url: " + githubApiRelease.getUrl());
+      }
+
     } catch (IOException e) {
       throw new MojoExecutionException("Create release request to Github Api failed", e);
     }
@@ -187,7 +192,9 @@ public class ReleaseService {
 
     try {
       Path releaseNotesPath = Paths.get(releaseNotes);
-      logger.debug("Release notes path: " + releaseNotes);
+      if (logger.isDebugEnabled()) {
+        logger.debug("Release notes path: " + releaseNotes);
+      }
       releaseNotesContent = Files.readAllBytes(releaseNotesPath);
 
       return new String(releaseNotesContent, StandardCharsets.UTF_8);

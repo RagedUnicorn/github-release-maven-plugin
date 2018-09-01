@@ -22,16 +22,29 @@
 
 package com.ragedunicorn.tools.maven.log;
 
+@SuppressWarnings("PMD")
 public class DefaultLog implements GitHubReleaseLogger {
+  /**
+   * Define default logLevel.
+   * logLevels:
+   * 1 - Error
+   * 2 - Info
+   * 3 - Warning
+   * 4 - Debug
+   */
+  private int logLevel = 3;
 
-  private boolean debug = false;
+  public static final int LOG_LEVEL_ERROR = 1;
+  public static final int LOG_LEVEL_WARNING = 2;
+  public static final int LOG_LEVEL_INFO = 3;
+  public static final int LOG_LEVEL_DEBUG = 4;
 
   public DefaultLog() {
     // no op
   }
 
-  public DefaultLog(boolean debug) {
-    this.debug = debug;
+  public DefaultLog(int logLevel) {
+    this.logLevel = logLevel;
   }
 
   /**
@@ -40,7 +53,7 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param content The content to log
    */
   public void debug(String content) {
-    if (this.debug) {
+    if (this.logLevel >= LOG_LEVEL_DEBUG) {
       System.out.println("[DEBUG] " + content);
     }
   }
@@ -52,7 +65,7 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param error   An error object
    */
   public void debug(String content, Throwable error) {
-    if (this.debug) {
+    if (this.logLevel >= LOG_LEVEL_DEBUG) {
       System.out.println("[DEBUG] " + content);
       error.printStackTrace();
     }
@@ -64,9 +77,18 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param error An error object
    */
   public void debug(Throwable error) {
-    if (this.debug) {
+    if (this.logLevel >= LOG_LEVEL_DEBUG) {
       error.printStackTrace();
     }
+  }
+
+  /**
+   * Returns whether the debug logLevel is enabled or not.
+   *
+   * @return whether the logLevel is enabled or not
+   */
+  public boolean isDebugEnabled() {
+    return this.logLevel >= LOG_LEVEL_DEBUG;
   }
 
   /**
@@ -75,7 +97,9 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param content The content to log
    */
   public void info(String content) {
-    System.out.println("[INFO] " + content);
+    if (this.logLevel >= LOG_LEVEL_INFO) {
+      System.out.println("[INFO] " + content);
+    }
   }
 
   /**
@@ -85,8 +109,10 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param error   An error object
    */
   public void info(String content, Throwable error) {
-    System.out.println("[INFO] " + content);
-    error.printStackTrace();
+    if (this.logLevel >= LOG_LEVEL_INFO) {
+      System.out.println("[INFO] " + content);
+      error.printStackTrace();
+    }
   }
 
   /**
@@ -95,7 +121,18 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param error An error object
    */
   public void info(Throwable error) {
-    error.printStackTrace();
+    if (this.logLevel >= LOG_LEVEL_INFO) {
+      error.printStackTrace();
+    }
+  }
+
+  /**
+   * Returns whether the info logLevel is enabled or not.
+   *
+   * @return whether the logLevel is enabled or not
+   */
+  public boolean isInfoEnabled() {
+    return this.logLevel >= LOG_LEVEL_INFO;
   }
 
   /**
@@ -104,7 +141,9 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param content The content to log
    */
   public void warn(String content) {
-    System.out.println("[WARNING] " + content);
+    if (this.logLevel >= LOG_LEVEL_WARNING) {
+      System.out.println("[WARNING] " + content);
+    }
   }
 
   /**
@@ -114,8 +153,10 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param error   An error object
    */
   public void warn(String content, Throwable error) {
-    System.out.println("[WARNING] " + content);
-    error.printStackTrace();
+    if (this.logLevel >= LOG_LEVEL_WARNING) {
+      System.out.println("[WARNING] " + content);
+      error.printStackTrace();
+    }
   }
 
   /**
@@ -124,7 +165,18 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param error An error object
    */
   public void warn(Throwable error) {
-    error.printStackTrace();
+    if (this.logLevel >= LOG_LEVEL_WARNING) {
+      error.printStackTrace();
+    }
+  }
+
+  /**
+   * Returns whether the warn logLevel is enabled or not.
+   *
+   * @return whether the logLevel is enabled or not
+   */
+  public boolean isWarnEnabled() {
+    return this.logLevel >= LOG_LEVEL_WARNING;
   }
 
   /**
@@ -133,7 +185,9 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param content The content to log
    */
   public void error(String content) {
-    System.out.println("[ERROR] " + content);
+    if (this.logLevel >= LOG_LEVEL_ERROR) {
+      System.out.println("[ERROR] " + content);
+    }
   }
 
   /**
@@ -143,8 +197,10 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param error   An error object
    */
   public void error(String content, Throwable error) {
-    System.out.println("[ERROR] " + content);
-    error.printStackTrace();
+    if (this.logLevel >= LOG_LEVEL_ERROR) {
+      System.out.println("[ERROR] " + content);
+      error.printStackTrace();
+    }
   }
 
   /**
@@ -153,6 +209,17 @@ public class DefaultLog implements GitHubReleaseLogger {
    * @param error An error object
    */
   public void error(Throwable error) {
-    error.printStackTrace();
+    if (this.logLevel >= LOG_LEVEL_ERROR) {
+      error.printStackTrace();
+    }
+  }
+
+  /**
+   * Returns whether the error logLevel is enabled or not.
+   *
+   * @return whether the logLevel is enabled or not
+   */
+  public boolean isErrorEnabled() {
+    return this.logLevel >= LOG_LEVEL_ERROR;
   }
 }
