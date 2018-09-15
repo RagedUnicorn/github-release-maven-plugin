@@ -35,7 +35,7 @@ import org.apache.maven.settings.Server;
 import org.apache.maven.settings.Settings;
 
 
-@Mojo(name = "rg-github-release")
+@Mojo(name = "github-release")
 public class GitHubReleaseMojo extends AbstractMojo {
   // owner of the repository
   @Parameter(property = "owner", required = true)
