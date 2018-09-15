@@ -27,7 +27,7 @@ public class GitHubReleaseMojoTest extends AbstractMojoTestCase {
 
     GitHubReleaseMojo mojo = new GitHubReleaseMojo();
     mojo = (GitHubReleaseMojo) configureMojo(
-        mojo, extractPluginConfiguration("rg-github-release-maven-plugin", testPom)
+        mojo, extractPluginConfiguration("github-release-maven-plugin", testPom)
     );
 
     assertNotNull(mojo);

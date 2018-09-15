@@ -13,7 +13,7 @@ Setup pom.xml in project
     <plugins>
       <plugin>
         <groupId>com.ragedunicorn.tools.maven</groupId>
-        <artifactId>rg-github-release-maven-plugin</artifactId>
+        <artifactId>github-release-maven-plugin</artifactId>
         <version>[version]</version>
         <executions>
           <execution>
@@ -56,7 +56,9 @@ Setup pom.xml in project
 
 ### Execute Plugin
 
-`mvn rg-github-release:rg-github-release`
+```
+mvn rg-github-release:rg-github-release
+```
 
 
 ## Setup Api Token
@@ -79,7 +81,7 @@ Once the Api token is generated it can be stored inside the maven `.m2/settings.
  ```xml
 <server>
   <id>github-oauth</id>
-  <passphrase>token/passphrase>
+  <passphrase>token</passphrase>
 </server>
 ```
 
@@ -91,7 +93,9 @@ It is also possible to set the token with the parameter `token` directly inside 
 
 Basic tests can be executed with:
 
-`mvn test`
+```
+mvn test
+```
 
 Tests are kept basic because for most of the functionality the GitHub backend is required.
 
@@ -104,9 +108,11 @@ The project contains IntelliJ run configurations that can be used for most tasks
 
 ##### Build Project
 
-rg-github-release-maven-plugin
+github-release-maven-plugin
 
-```clean install```
+```
+clean install
+```
 
 ##### Run Example
 
@@ -116,7 +122,7 @@ The example can be used for testing of the plugin during development. It require
 * Update repository owner
 * Setup oauth token
 
-rg-github-release-maven-plugin/example
+github-release-maven-plugin/example
 
 ```
 clean install
@@ -129,14 +135,16 @@ Instead the module can be considered separate and independent. It is an example 
 
 
 ##### Find Bugs
-rg-github-release-maven-plugin/plugin
+
+github-release-maven-plugin/plugin
 
 ```
 clean install findbugs:findbugs
 ```
 
 ##### Checkstyle
-rg-github-release-maven-plugin/plugin
+
+github-release-maven-plugin/plugin
 
 ```
 clean checkstyle:checkstyle
