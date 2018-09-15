@@ -108,7 +108,7 @@ The project contains IntelliJ run configurations that can be used for most tasks
 
 ##### Build Project
 
-github-release-maven-plugin
+rg-github-release-maven-plugin
 
 ```
 clean install
@@ -122,7 +122,7 @@ The example can be used for testing of the plugin during development. It require
 * Update repository owner
 * Setup oauth token
 
-github-release-maven-plugin/example
+rg-github-release-maven-plugin/example
 
 ```
 clean install
@@ -134,20 +134,20 @@ Executing the plugin from a different folder won't work without also fixing the 
 Instead the module can be considered separate and independent. It is an example of how to use the plugin and it is helpful in testing the plugin during development.
 
 
-##### Find Bugs
-
-github-release-maven-plugin/plugin
-
-```
-clean install findbugs:findbugs
-```
-
 ##### Checkstyle
 
-github-release-maven-plugin/plugin
+rg-github-release-maven-plugin/plugin
 
 ```
-clean checkstyle:checkstyle
+mvn checkstyle:checkstyle
+```
+
+##### PMD
+
+rg-github-release-maven-plugin/plugin
+
+```
+mvn pmd:pmd
 ```
 
 ## Help
