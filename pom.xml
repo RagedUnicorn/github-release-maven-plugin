@@ -74,18 +74,24 @@
       </activation>
       <properties>
         <skip.sign.gpg>true</skip.sign.gpg>
+        <skip.package.javadoc>true</skip.package.javadoc>
+        <skip.package.sources>true</skip.package.sources>
       </properties>
     </profile>
     <profile>
       <id>release</id>
       <properties>
         <skip.sign.gpg>true</skip.sign.gpg>
+        <skip.package.javadoc>true</skip.package.javadoc>
+        <skip.package.sources>true</skip.package.sources>
       </properties>
     </profile>
     <profile>
       <id>deploy</id>
       <properties>
         <skip.sign.gpg>false</skip.sign.gpg>
+        <skip.package.javadoc>false</skip.package.javadoc>
+        <skip.package.sources>false</skip.package.sources>
       </properties>
     </profile>
   </profiles>
@@ -121,6 +127,38 @@
               <skip>${skip.sign.gpg}</skip>
               <keyname>${gpg.keyname}</keyname>
               <passphraseServerId>${gpg.keyname}</passphraseServerId>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <skipSource>${skip.package.sources}</skipSource>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <skip>${skip.package.javadoc}</skip>
             </configuration>
           </execution>
         </executions>
