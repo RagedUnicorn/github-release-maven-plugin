@@ -2,12 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>com.ragedunicorn.tools.maven</groupId>
   <artifactId>rg-github-release-maven-plugin</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>maven-plugin</packaging>
-  <name>rg-github-release-plugin</name>
+
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>Maven plugin for creating GitHub releases</description>
+  <url>https://github.com/RagedUnicorn/rg-github-release-maven-plugin</url>
 
   <licenses>
     <license>
@@ -40,8 +42,26 @@
     </developer>
   </developers>
 
+  <scm>
+    <connection>scm:git:git://github.com/RagedUnicorn/rg-github-release-maven-plugin.git</connection>
+    <developerConnection>scm:git:ssh://github.com:RagedUnicorn/rg-github-release-maven-plugin.git</developerConnection>
+    <url>https://github.com/RagedUnicorn/rg-github-release-maven-plugin/tree/master</url>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+    </repository>
+  </distributionManagement>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <gpg.keyname>488C9072D9E5426B</gpg.keyname>
     <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
     <checkstyle.header.location>LICENSE.txt</checkstyle.header.location>
   </properties>
@@ -52,9 +72,21 @@
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
+      <properties>
+        <skip.sign.gpg>true</skip.sign.gpg>
+      </properties>
     </profile>
     <profile>
-      <id>production</id>
+      <id>release</id>
+      <properties>
+        <skip.sign.gpg>true</skip.sign.gpg>
+      </properties>
+    </profile>
+    <profile>
+      <id>deploy</id>
+      <properties>
+        <skip.sign.gpg>false</skip.sign.gpg>
+      </properties>
     </profile>
   </profiles>
 
@@ -117,38 +149,10 @@
             <artifactId>pmd-xml</artifactId>
             <version>6.6.0</version>
           </dependency>
-
-        </dependencies>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <version>3.0.5</version>
-        <!--
-        <configuration>
-          <excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
-          <includeFilterFile>findbugs-include.xml</includeFilterFile>
-        </configuration>
-        -->
-        <dependencies>
-          <dependency>
-            <groupId>com.ragedunicorn.tools.maven</groupId>
-            <artifactId>maven-code-quality</artifactId>
-            <version>1.0.0</version>
-          </dependency>
         </dependencies>
       </plugin>
     </plugins>
   </build>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jxr-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </reporting>
 
   <dependencies>
     <dependency>
