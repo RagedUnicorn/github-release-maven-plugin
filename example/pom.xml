@@ -43,6 +43,10 @@
     </developer>
   </developers>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <build>
     <plugins>
       <plugin>
@@ -73,13 +77,13 @@
   </build>
 
   <!-- include for debugging -->
-  <!--
+
   <dependencies>
     <dependency>
       <groupId>com.ragedunicorn.tools.maven</groupId>
       <artifactId>github-release-maven-plugin</artifactId>
-      <version>[version]</version>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
-  -->
+
 </project>
