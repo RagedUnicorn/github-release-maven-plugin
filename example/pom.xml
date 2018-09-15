@@ -7,7 +7,41 @@
   <artifactId>rg-github-release-example</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>rg-github-release-plugin-example</name>
+
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>Example project for Maven GitHub release plugin</description>
+  <url>https://github.com/RagedUnicorn/rg-github-release-maven-plugin</url>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+      <comments>A short, permissive software license. Basically, you can do whatever you want as long as you include the
+        original copyright and license notice in any copy of the software/source.
+      </comments>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>RagedUnicorn</name>
+    <url>http://ragedunicorn.com</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>mwiesendanger</id>
+      <name>Michael Wiesendanger</name>
+      <email>michael.wiesendanger@gmail.com</email>
+      <url>http://ragedunicorn.com</url>
+      <organization>RagedUnicorn</organization>
+      <organizationUrl>http://ragedunicorn.com</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Switzerland/Zurich</timezone>
+    </developer>
+  </developers>
 
   <build>
     <plugins>
@@ -15,7 +49,6 @@
         <groupId>com.ragedunicorn.tools.maven</groupId>
         <artifactId>rg-github-release-maven-plugin</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <!-- info: maven executes executions in the same phase exactly as they are listed in the pom.xml -->
         <executions>
           <execution>
             <id>default-cli</id>
@@ -40,11 +73,13 @@
   </build>
 
   <!-- include for debugging -->
+  <!--
   <dependencies>
     <dependency>
       <groupId>com.ragedunicorn.tools.maven</groupId>
       <artifactId>rg-github-release-maven-plugin</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>[version]</version>
     </dependency>
   </dependencies>
+  -->
 </project>
