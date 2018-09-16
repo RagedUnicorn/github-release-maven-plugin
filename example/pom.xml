@@ -6,7 +6,7 @@
   <groupId>com.ragedunicorn.tools.maven</groupId>
   <artifactId>github-release-example</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Example project for Maven GitHub release plugin</description>
@@ -52,7 +52,7 @@
       <plugin>
         <groupId>com.ragedunicorn.tools.maven</groupId>
         <artifactId>github-release-maven-plugin</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
         <executions>
           <execution>
             <id>default-cli</id>
@@ -77,13 +77,13 @@
   </build>
 
   <!-- include for debugging -->
-
+  <!--
   <dependencies>
     <dependency>
       <groupId>com.ragedunicorn.tools.maven</groupId>
       <artifactId>github-release-maven-plugin</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>1.0.0</version>
     </dependency>
   </dependencies>
-
+  -->
 </project>

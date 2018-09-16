@@ -4,7 +4,7 @@
   <groupId>com.ragedunicorn.tools.maven</groupId>
   <artifactId>test</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <build>
     <plugins>
