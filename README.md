@@ -2,6 +2,7 @@
 
 > A maven plugin for creating GitHub releases including the attachment of assets and release notes
 
+
 ## Usage
 
 Setup pom.xml in project
@@ -112,6 +113,38 @@ rg-github-release-maven-plugin
 
 ```
 clean install
+```
+
+#### Create a Release
+
+In maven `settings.xml` configure the ossrh account
+
+```
+<server>
+  <id>ossrh</id>
+  <username></username>
+  <password></password>
+</server>
+```
+
+#### Build and Release 
+
+```
+mvn clean deploy -P deploy
+```
+
+#### Move Staging to Release
+
+If `autoReleaseAfterClose` is set to false in the `nexus-staging-maven-plugin` plugin an additional step is required to move the deployment from staging to release.
+
+```
+mvn nexus-staging:release
+```
+
+Or if the deployment didn't workout you can drop the artifact from the staging repository.
+
+```
+mvn nexus-staging:drop
 ```
 
 ##### Run Example
