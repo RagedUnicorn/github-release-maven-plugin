@@ -10,7 +10,7 @@
 
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Example project for Maven GitHub release plugin</description>
-  <url>https://github.com/RagedUnicorn/rg-github-release-maven-plugin</url>
+  <url>https://github.com/RagedUnicorn/github-release-maven-plugin</url>
 
   <licenses>
     <license>
