@@ -113,7 +113,9 @@ public class GitHubClient {
    * Prepare an endpoint url by replacing placeholders with real values.
    *
    * @param path The path to prepare
+   *
    * @return The prepared URI
+   *
    * @throws MojoExecutionException If failing to prepare the URI properly
    */
   public URI prepareEndpointUri(final String path) throws MojoExecutionException {

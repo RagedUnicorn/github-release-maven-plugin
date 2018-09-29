@@ -73,9 +73,12 @@ public class GitHubReleaseMojo extends AbstractMojo {
   @Parameter(property = "releaseNotes")
   private String releaseNotes;
 
+  // a list of assets such as .zip to attach to the release
   @Parameter(property = "assets")
   private String[] assets;
 
+  // references a server configuration in your .m2 settings.xml. This is the preferred way for using
+  // the GitHub Api token
   @Parameter(property = "authToken")
   private String authToken;
 
@@ -102,7 +105,9 @@ public class GitHubReleaseMojo extends AbstractMojo {
    * Create a new release on GitHub.
    *
    * @param gitHubClient The GitHub client
+   *
    * @return The response object of the create release endpoint
+   *
    * @throws MojoExecutionException If any exception happens during the execution of the release
    *                                service
    */
@@ -126,6 +131,7 @@ public class GitHubReleaseMojo extends AbstractMojo {
    *
    * @param gitHubClient The GitHub client
    * @param uploadUrl    The url to use to upload the assets
+   *
    * @throws MojoExecutionException If any exception happens during the execution of the asset
    *                                service
    */
@@ -139,6 +145,7 @@ public class GitHubReleaseMojo extends AbstractMojo {
    * Retrieve the auth token for the Github Api.
    *
    * @return A property object containing the Github Api token
+   *
    * @throws MojoExecutionException An exception occurring during the execution of a plugin
    */
   private String getCredentials() throws MojoExecutionException {
@@ -185,6 +192,8 @@ public class GitHubReleaseMojo extends AbstractMojo {
    * Additionally the authToken for authenticating against the GitHub Api is set.
    *
    * @return The created GitHub client
+   *
+   * @throws MojoExecutionException An exception occurring during the execution of a plugin
    */
   private GitHubClient createGitHubClient() throws MojoExecutionException {
     GitHubClient gitHubClient = new GitHubClient();
