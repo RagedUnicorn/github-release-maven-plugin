@@ -148,6 +148,14 @@ Or if the deployment didn't workout you can drop the artifact from the staging r
 mvn nexus-staging:drop
 ```
 
+**Note:** On MacOS the error `gpg: signing failed: Inappropriate ioctl for device` can be solved by setting the tty export variable for gpg.
+
+```
+export GPG_TTY=$(tty)
+```
+
+If you are using the IntelliJ console this might need to be set directly in that console.
+
 ##### Run Example
 
 The example can be used for testing of the plugin during development. It requires some manual setup on GitHub before it can be run.
