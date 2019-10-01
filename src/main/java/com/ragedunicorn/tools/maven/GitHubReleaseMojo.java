@@ -37,6 +37,9 @@ import org.apache.maven.settings.Settings;
 
 @Mojo(name = "github-release")
 public class GitHubReleaseMojo extends AbstractMojo {
+    @Parameter(defaultValue = "false")
+    private boolean skip;
+    
   // owner of the repository
   @Parameter(property = "owner", required = true)
   private String owner;
@@ -94,6 +97,11 @@ public class GitHubReleaseMojo extends AbstractMojo {
    * @throws MojoExecutionException If any exception happens during the execution of the plugin
    */
   public void execute() throws MojoExecutionException {
+      if (skip) {
+          getLog().info("Skip set to true. Skipping");
+          return;
+      }
+      
     validateRequiredInputParameters();
 
     GitHubClient gitHubClient = createGitHubClient();
