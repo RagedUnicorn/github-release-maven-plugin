@@ -1,5 +1,7 @@
 # github-release-maven-plugin
 
+(modified to allow `<skip>true</skip>` to prevent execution in submodules.  See [owlcms4]() for example.
+
 > A maven plugin for creating GitHub releases including the attachment of assets and release notes
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.ragedunicorn.tools.maven/github-release-maven-plugin.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.ragedunicorn.tools.maven%22%20AND%20a:%22github-release-maven-plugin%22)
@@ -54,6 +56,7 @@ Setup pom.xml in project
 | body            | false    | [commit message last commit] | The body of the release. Essentially the release notes. Text is taken as is. For easier formatting use the releaseNotes parameter |
 | releaseNotes    | false    | <>                           | Overwrite body parameter. A file containing the text for the release notes                                                        |
 | assets          | false    | <>                           | A list of files that are being uploaded and attached to the release                                                               |
+| skip          | false    | <>                           | if true, plugin is skpped.  Required options must still be provided.                                                              |
 
 
 ### Execute Plugin
