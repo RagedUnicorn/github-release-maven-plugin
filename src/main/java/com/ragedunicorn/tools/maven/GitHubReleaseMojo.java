@@ -37,8 +37,9 @@ import org.apache.maven.settings.Settings;
 
 @Mojo(name = "github-release")
 public class GitHubReleaseMojo extends AbstractMojo {
-    @Parameter(defaultValue = "false")
-    private boolean skip;
+  // skip execution for the current submodule
+  @Parameter(defaultValue = "false")
+  private boolean skip;
     
   // owner of the repository
   @Parameter(property = "owner", required = true)
