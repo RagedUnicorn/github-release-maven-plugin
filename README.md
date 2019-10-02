@@ -1,6 +1,6 @@
 # github-release-maven-plugin
 
-(modified to allow `<skip>true</skip>` to prevent execution in submodules.  See [owlcms4]() for example.
+(modified to allow `<skip>true</skip>` to prevent execution in submodules.  See [owlcms4](https://github.com/jflamy/owlcms4) and the owlcms submodule for an example.
 
 > A maven plugin for creating GitHub releases including the attachment of assets and release notes
 
