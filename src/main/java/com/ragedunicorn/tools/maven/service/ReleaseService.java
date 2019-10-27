@@ -125,6 +125,10 @@ public class ReleaseService {
     final String responseString = EntityUtils.toString(entity, StandardCharsets.UTF_8);
     final int statusCode = response.getStatusLine().getStatusCode();
 
+    if (statusCode == 401) {
+        throw new MojoExecutionException("Failed to create release - reason: "
+                + "unauthorized");
+    } else
     if (statusCode / 100 != 2) {
       GitHubApiClientError clientError = gson.fromJson(responseString, GitHubApiClientError.class);
       List<GitHubApiError> errors = clientError.getErrors();
