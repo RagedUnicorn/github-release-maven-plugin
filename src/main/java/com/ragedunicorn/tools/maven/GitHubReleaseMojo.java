@@ -42,15 +42,15 @@ public class GitHubReleaseMojo extends AbstractMojo {
   private boolean skip;
     
   // owner of the repository
-  @Parameter(property = "owner", required = true)
+  @Parameter(property = "owner")
   private String owner;
 
   // required - name of the repository
-  @Parameter(property = "repository", required = true)
+  @Parameter(property = "repository")
   private String repository;
 
   // name of the tag - if tag does not exist it will be created
-  @Parameter(property = "tagName", required = true)
+  @Parameter(property = "tagName")
   private String tagName;
 
   // determines where the git tag is created from
@@ -99,6 +99,7 @@ public class GitHubReleaseMojo extends AbstractMojo {
    */
   public void execute() throws MojoExecutionException {
       if (skip) {
+          System.err.println("Skip set to true. Skipping");
           getLog().info("Skip set to true. Skipping");
           return;
       }
