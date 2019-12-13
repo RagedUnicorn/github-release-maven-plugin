@@ -38,19 +38,19 @@ import org.apache.maven.settings.Settings;
 @Mojo(name = "github-release")
 public class GitHubReleaseMojo extends AbstractMojo {
   // skip execution for the current submodule
-  @Parameter(defaultValue = "false")
+  @Parameter(property = "skip", defaultValue = "false")
   private boolean skip;
     
   // owner of the repository
-  @Parameter(property = "owner")
+  @Parameter(property = "owner", required = false)
   private String owner;
 
   // required - name of the repository
-  @Parameter(property = "repository")
+  @Parameter(property = "repository", required = false)
   private String repository;
 
   // name of the tag - if tag does not exist it will be created
-  @Parameter(property = "tagName")
+  @Parameter(property = "tagName", required = false)
   private String tagName;
 
   // determines where the git tag is created from
@@ -102,6 +102,9 @@ public class GitHubReleaseMojo extends AbstractMojo {
           System.err.println("Skip set to true. Skipping");
           getLog().info("Skip set to true. Skipping");
           return;
+      } else {
+          System.err.println("Skip set to false . Performing");
+          getLog().info("Skip set to false . Performing");
       }
       
     validateRequiredInputParameters();
