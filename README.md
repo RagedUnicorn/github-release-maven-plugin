@@ -59,7 +59,7 @@ Setup pom.xml in project
 ### Execute Plugin
 
 ```
-mvn rg-github-release:rg-github-release
+mvn github-release:github-release
 ```
 
 
