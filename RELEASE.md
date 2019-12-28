@@ -13,5 +13,6 @@
   * mvn clean deploy -P deploy
   * mvn nexus-staging:release when autoReleaseAfterClose is set to false
   * Increase project version and add SNAPSHOT then commit (after a release the version should always be a snapshot version)
+    * Don't forget to update the example and the test pom with the same version
 
 **Note:** Snapshot versions can be deployed with the same command `mvn clean deploy -P deploy`
