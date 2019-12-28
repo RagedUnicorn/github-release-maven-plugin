@@ -11,7 +11,7 @@
       <plugin>
         <groupId>com.ragedunicorn.tools.maven</groupId>
         <artifactId>github-release-maven-plugin</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.2-SNAPSHOT</version>
         <configuration>
           <owner>ragedunicorn</owner>
           <repository>github-release-test</repository>
