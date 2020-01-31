@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Michael Wiesendanger
+ * Copyright (c) 2020 Michael Wiesendanger
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -24,7 +24,6 @@ package com.ragedunicorn.tools.maven.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
 
 public class Release {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Michael Wiesendanger
+ * Copyright (c) 2020 Michael Wiesendanger
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -23,11 +23,9 @@
 package com.ragedunicorn.tools.maven;
 
 import com.google.common.collect.Lists;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
-
 import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
 import org.apache.http.impl.client.CloseableHttpClient;

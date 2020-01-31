@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Michael Wiesendanger
+ * Copyright (c) 2020 Michael Wiesendanger
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -26,7 +26,6 @@ import com.ragedunicorn.tools.maven.model.GitHubApiRelease;
 import com.ragedunicorn.tools.maven.model.Release;
 import com.ragedunicorn.tools.maven.service.AssetService;
 import com.ragedunicorn.tools.maven.service.ReleaseService;
-
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;

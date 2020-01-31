@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Michael Wiesendanger
+ * Copyright (c) 2020 Michael Wiesendanger
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -23,22 +23,18 @@
 package com.ragedunicorn.tools.maven.service;
 
 import com.google.gson.Gson;
-
 import com.ragedunicorn.tools.maven.GitHubClient;
 import com.ragedunicorn.tools.maven.log.DefaultLog;
 import com.ragedunicorn.tools.maven.model.GitHubApiAsset;
 import com.ragedunicorn.tools.maven.model.GitHubApiClientError;
 import com.ragedunicorn.tools.maven.model.GitHubApiError;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-
 import javax.ws.rs.core.MediaType;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -48,7 +44,6 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.apache.maven.plugin.MojoExecutionException;
-
 
 public class AssetService {
   private final DefaultLog logger = new DefaultLog();
