@@ -3,7 +3,6 @@ package com.ragedunicorn.tools.maven;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.net.URI;
 import java.util.Arrays;
 

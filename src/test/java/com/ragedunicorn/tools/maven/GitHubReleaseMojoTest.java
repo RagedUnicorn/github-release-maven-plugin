@@ -1,7 +1,6 @@
 package com.ragedunicorn.tools.maven;
 
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
-
 import java.io.File;
 
 public class GitHubReleaseMojoTest extends AbstractMojoTestCase {
