@@ -27,6 +27,7 @@ Setup pom.xml in project
               <tagName>v0.0.1</tagName>
               <name>example-release</name>
               <targetCommitish>master</targetCommitish>
+              <draft>true</draft>
               <body>release description overwritten by release notes</body>
               <releaseNotes>src/main/resources/release-notes-example.md</releaseNotes>
               <assets>
@@ -54,7 +55,7 @@ Setup pom.xml in project
 | body            | false    | [commit message last commit] | The body of the release. Essentially the release notes. Text is taken as is. For easier formatting use the releaseNotes parameter |
 | releaseNotes    | false    | <>                           | Overwrite body parameter. A file containing the text for the release notes                                                        |
 | assets          | false    | <>                           | A list of files that are being uploaded and attached to the release                                                               |
-
+| draft         | false    | false                          | True for creating a draft, false for creating a published one                                                           |
 
 ### Execute Plugin
 
