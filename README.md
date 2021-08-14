@@ -229,7 +229,7 @@ Click the name of the tag. On the top right is a delete button.
 
 ## License
 
-Copyright (c) 2020 Michael Wiesendanger
+Copyright (c) 2021 Michael Wiesendanger
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
