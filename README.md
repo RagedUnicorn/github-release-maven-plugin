@@ -54,7 +54,7 @@ Setup pom.xml in project
 | body            | false    | [commit message last commit] | The body of the release. Essentially the release notes. Text is taken as is. For easier formatting use the releaseNotes parameter |
 | releaseNotes    | false    | <>                           | Overwrite body parameter. A file containing the text for the release notes                                                        |
 | assets          | false    | <>                           | A list of files that are being uploaded and attached to the release                                                               |
-
+| draft           | false    | false                        | True to create a draft (unpublished) release, false to create a published one                                                     |
 
 ### Execute Plugin
 
@@ -77,9 +77,9 @@ The following permissions are required:
   * repo:status  Access commit status
   * repo_deployment  Access deployment status
   * public_repo  Access public repositories
-   
+
 Once the Api token is generated it can be stored inside the maven `.m2/settings.xml`.
- 
+
  ```xml
 <server>
   <id>github-oauth</id>
@@ -105,7 +105,7 @@ Tests are kept basic because for most of the functionality the GitHub backend is
 
 ##### IntelliJ Run Configurations
 
-The project contains IntelliJ run configurations that can be used for most tasks. Create a folder `runConfigurations` inside the `.idea` folder and copy over all run configurations. 
+The project contains IntelliJ run configurations that can be used for most tasks. Create a folder `runConfigurations` inside the `.idea` folder and copy over all run configurations.
 
 
 ##### Build Project
@@ -128,7 +128,7 @@ In maven `settings.xml` configure the ossrh account
 </server>
 ```
 
-#### Build and Release 
+#### Build and Release
 
 ```
 mvn clean deploy -P deploy
