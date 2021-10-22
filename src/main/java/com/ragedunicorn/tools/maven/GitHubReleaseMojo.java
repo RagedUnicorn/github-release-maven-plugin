@@ -76,11 +76,13 @@ public class GitHubReleaseMojo extends AbstractMojo {
   @Parameter(property = "assets")
   private String[] assets;
 
-  // references a server configuration in your .m2 settings.xml. This is the preferred way for using
-  // the GitHub Api token
+  // alternative of using a server configuration. The authToken can directly be placed in the
+  // plugin configuration
   @Parameter(property = "authToken")
   private String authToken;
 
+  // references a server configuration in your .m2 settings.xml. This is the preferred way for using
+  // the GitHub Api token
   @Parameter(property = "server")
   private String server;
 

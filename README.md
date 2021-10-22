@@ -48,6 +48,7 @@ Setup pom.xml in project
 | owner           | true     | <>                           | The name of the owner of the targeted repository                                                                                  |
 | repository      | true     | <>                           | The name of the targeted repository                                                                                               |
 | server          | false    | <>                           | References a server configuration in your .m2 settings.xml. This is the preferred way for using the GitHub Api token              |
+| authToken       | false    | <>                           | Alternative of using a server configuration. The authToken can directly be placed in the plugin configuration                     |
 | tagName         | true     | <>                           | The full name of the tag that should get used to create the release                                                               |
 | name            | false    | [tagname]                    | The title of the release                                                                                                          |
 | targetCommitish | false    | master                       | Determines where the tag is created from if the tag does not already exist. It is usually better to create a tag first            |
@@ -89,7 +90,20 @@ Once the Api token is generated it can be stored inside the maven `.m2/settings.
 
 Make sure to use `passphrase` instead of `username`and `password` otherwise the plugin will not be able to recognize the token.
 
-It is also possible to set the token with the parameter `token` directly inside the plugin configuration. This is however not recommended because those pom files are usually getting commited into source control and potentially leaking the token.
+It is also possible to set the token with the parameter `authToken` directly inside the plugin configuration. This is however not recommended because those pom files are usually getting commited into source control and potentially leaking the token.
+However, using maven commandline this can be useful being able to overwrite this parameter with the `-D` option.
+
+```xml
+<configuration>
+  ...
+  <token>${github.auth-token}</token>
+</configuration>
+```
+
+Then invoking via the command line
+```
+mvn github-release:github-release -D github.auth-token=[token]
+```
 
 ## Test
 
