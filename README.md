@@ -96,7 +96,7 @@ However, using maven commandline this can be useful being able to overwrite this
 ```xml
 <configuration>
   ...
-  <token>${github.auth-token}</token>
+  <authToken>${github.auth-token}</authToken>
 </configuration>
 ```
 
