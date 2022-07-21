@@ -1,0 +1,8 @@
+name: "OSSRH Package Release"
+on: [workflow_dispatch]
+
+jobs:
+  ossrh-package-release-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dummy step

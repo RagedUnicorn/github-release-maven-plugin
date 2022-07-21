@@ -1,0 +1,8 @@
+name: "GitHub Package Release"
+on: [workflow_dispatch]
+
+jobs:
+  github-package-release-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dummy step
