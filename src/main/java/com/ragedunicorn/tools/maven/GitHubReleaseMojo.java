@@ -30,12 +30,17 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Server;
 import org.apache.maven.settings.Settings;
 
 
 @Mojo(name = "github-release")
 public class GitHubReleaseMojo extends AbstractMojo {
+  // true for skipping the plugin completely, false by default
+  @Parameter(property = "skip")
+  private Boolean skip;
+
   // owner of the repository
   @Parameter(property = "owner", required = true)
   private String owner;
@@ -86,8 +91,11 @@ public class GitHubReleaseMojo extends AbstractMojo {
   @Parameter(property = "server")
   private String server;
 
-  @Parameter(defaultValue = "${settings}", readonly = true)
+  @Parameter(defaultValue = "${settings}", required = true, readonly = true)
   private Settings settings;
+
+  @Parameter(defaultValue = "${project}", required = true, readonly = true)
+  private MavenProject project;
 
   /**
    * Plugin execution callback.
@@ -95,11 +103,15 @@ public class GitHubReleaseMojo extends AbstractMojo {
    * @throws MojoExecutionException If any exception happens during the execution of the plugin
    */
   public void execute() throws MojoExecutionException {
-    validateRequiredInputParameters();
+    if (skip != null && skip) {
+      getLog().info("Skipping Artifact deployment");
+    } else {
+      validateRequiredInputParameters();
 
-    GitHubClient gitHubClient = createGitHubClient();
-    GitHubApiRelease releaseResponse = createRelease(gitHubClient);
-    uploadAssets(gitHubClient, releaseResponse.getUploadUrl());
+      GitHubClient gitHubClient = createGitHubClient();
+      GitHubApiRelease releaseResponse = createRelease(gitHubClient);
+      uploadAssets(gitHubClient, releaseResponse.getUploadUrl());
+    }
   }
 
   /**

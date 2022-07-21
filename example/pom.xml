@@ -69,6 +69,7 @@
                 <asset>src/main/resources/asset-plain-text-example.txt</asset>
                 <asset>src/main/resources/asset-zip-example.zip</asset>
               </assets>
+              <skip>false</skip>
             </configuration>
           </execution>
         </executions>

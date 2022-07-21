@@ -56,6 +56,7 @@ Setup pom.xml in project
 | releaseNotes    | false    | <>                           | Overwrite body parameter. A file containing the text for the release notes                                                        |
 | assets          | false    | <>                           | A list of files that are being uploaded and attached to the release                                                               |
 | draft           | false    | false                        | True to create a draft (unpublished) release, false to create a published one                                                     |
+| skip            | false    | false                        | True for skipping the plugin                                                                                                      |
 
 ### Execute Plugin
 

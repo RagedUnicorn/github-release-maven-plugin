@@ -62,8 +62,8 @@ public class ReleaseService {
    * Create a new release.
    *
    * @param release The release object containing all relevant data for the release to create
-   * @return The received response from Github after creating the release
-   * @throws MojoExecutionException If the request to the Github Api failed
+   * @return The received response from GitHub after creating the release
+   * @throws MojoExecutionException If the request to the GitHub Api failed
    */
   public GitHubApiRelease createReleaseOperation(Release release) throws MojoExecutionException {
     Release preparedRelease = prepareRelease(release);
@@ -95,7 +95,7 @@ public class ReleaseService {
       }
 
     } catch (IOException e) {
-      throw new MojoExecutionException("Create release request to Github Api failed", e);
+      throw new MojoExecutionException("Create release request to GitHub Api failed", e);
     }
 
     try {
@@ -110,8 +110,8 @@ public class ReleaseService {
   /**
    * Check if the release request was successful and handle both failure and success.
    *
-   * @param response The response from the Github Api
-   * @return The response from the Github Api as POJO
+   * @param response The response from the GitHub Api
+   * @return The response from the GitHub Api as POJO
    * @throws IOException            If entity cannot be converted to a string
    * @throws MojoExecutionException If creation of release failed
    */
