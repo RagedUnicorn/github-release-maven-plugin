@@ -4,5 +4,28 @@ on: [workflow_dispatch]
 jobs:
   github-release-job:
     runs-on: ubuntu-latest
+    name: GitHub Release
     steps:
-      - name: dummy step
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Java and Maven
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+          cache: 'maven'
+      - name: Cache Local Maven Repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Create GitHub Release
+        run: |
+          mvn --batch-mode --no-transfer-progress \
+          deploy \
+          -P release-github \
+          -D github.auth-token=$GITHUB_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
