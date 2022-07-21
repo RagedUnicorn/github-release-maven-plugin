@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: 'feature_release_management'
       - name: Set up Java and Maven
         uses: actions/setup-java@v3
         with:
