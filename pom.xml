@@ -48,20 +48,8 @@
     <url>https://github.com/RagedUnicorn/github-release-maven-plugin/tree/master</url>
   </scm>
 
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-    </repository>
-  </distributionManagement>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <gpg.keyname>488C9072D9E5426B</gpg.keyname>
     <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
     <checkstyle.header.location>LICENSE.txt</checkstyle.header.location>
   </properties>
@@ -76,23 +64,96 @@
         <skip.sign.gpg>true</skip.sign.gpg>
         <skip.package.javadoc>true</skip.package.javadoc>
         <skip.package.sources>true</skip.package.sources>
+        <skip.deploy>true</skip.deploy>
       </properties>
     </profile>
     <profile>
-      <id>release</id>
-      <properties>
-        <skip.sign.gpg>true</skip.sign.gpg>
-        <skip.package.javadoc>true</skip.package.javadoc>
-        <skip.package.sources>true</skip.package.sources>
-      </properties>
-    </profile>
-    <profile>
-      <id>deploy</id>
+      <id>release-ossrh-package</id>
+      <distributionManagement>
+        <snapshotRepository>
+          <id>ossrh</id>
+          <name>Sonatype Apache Maven Snapshots Packages</name>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+          <id>ossrh</id>
+          <name>Sonatype Apache Maven Packages</name>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+      </distributionManagement>
       <properties>
         <skip.sign.gpg>false</skip.sign.gpg>
         <skip.package.javadoc>false</skip.package.javadoc>
         <skip.package.sources>false</skip.package.sources>
+        <skip.deploy>true</skip.deploy>
       </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.8</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>release-github-package</id>
+      <distributionManagement>
+        <repository>
+          <id>github</id>
+          <name>GitHub RagedUnicorn Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/ragedunicorn/github-release-maven-plugin</url>
+        </repository>
+      </distributionManagement>
+      <properties>
+        <skip.sign.gpg>true</skip.sign.gpg>
+        <skip.package.javadoc>false</skip.package.javadoc>
+        <skip.package.sources>false</skip.package.sources>
+        <skip.deploy>false</skip.deploy>
+      </properties>
+    </profile>
+    <profile>
+      <id>release-github</id>
+      <properties>
+        <skip.sign.gpg>true</skip.sign.gpg>
+        <skip.package.javadoc>true</skip.package.javadoc>
+        <skip.package.sources>true</skip.package.sources>
+        <skip.deploy>true</skip.deploy>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.ragedunicorn.tools.maven</groupId>
+            <artifactId>github-release-maven-plugin</artifactId>
+            <version>1.0.4</version>
+            <executions>
+              <execution>
+                <id>default-cli</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>github-release</goal>
+                </goals>
+                <configuration>
+                  <owner>ragedunicorn</owner>
+                  <repository>github-release-maven-plugin</repository>
+                  <!--suppress UnresolvedMavenProperty -->
+                  <authToken>${github.auth-token}</authToken>
+                  <tagName>v${project.version}</tagName>
+                  <name>v${project.version}</name>
+                  <releaseNotes>src/main/resources/release-notes.md</releaseNotes>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 
