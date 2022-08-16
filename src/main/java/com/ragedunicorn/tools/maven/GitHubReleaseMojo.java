@@ -42,6 +42,10 @@ public class GitHubReleaseMojo extends AbstractMojo {
   private Boolean skip;
 
   // owner of the repository
+  @Parameter(property = "baseUri", required = false)
+  private String baseUri;
+
+  // owner of the repository
   @Parameter(property = "owner", required = true)
   private String owner;
 
@@ -210,6 +214,12 @@ public class GitHubReleaseMojo extends AbstractMojo {
    */
   private GitHubClient createGitHubClient() throws MojoExecutionException {
     GitHubClient gitHubClient = new GitHubClient();
+    if (baseUri != null) {
+      if (baseUri.endsWith("/")) {
+        baseUri = baseUri.substring(0, baseUri.length()-1);
+      }
+      gitHubClient.setBaseUri(baseUri);
+    }
     gitHubClient.setOAuthToken(getCredentials());
     gitHubClient.setRepository(repository);
     gitHubClient.setOwner(owner);

@@ -39,7 +39,7 @@ public class GitHubClient {
   public static final String GITHUB_MEDIA_TYPE = "application/vnd.github.v3+json";
 
   // github api base url
-  private static final String baseUri = "https://api.github.com";
+  private String baseUri = "https://api.github.com";
   // targeted repository
   private String repository;
   // owner of the repository
@@ -47,8 +47,12 @@ public class GitHubClient {
   // oauth token
   private String token;
 
-  public static String getBaseUri() {
+  public String getBaseUri() {
     return baseUri;
+  }
+
+  public void setBaseUri(String baseUri) {
+    this.baseUri = baseUri;
   }
 
   public String getRepository() {
