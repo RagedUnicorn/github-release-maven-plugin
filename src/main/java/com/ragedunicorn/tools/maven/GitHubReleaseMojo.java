@@ -41,7 +41,7 @@ public class GitHubReleaseMojo extends AbstractMojo {
   @Parameter(property = "skip")
   private Boolean skip;
 
-  // owner of the repository
+  // GitHub baseURI - can be adapted for GitHub Enterprise
   @Parameter(property = "baseUri", required = false)
   private String baseUri;
 
