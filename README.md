@@ -45,6 +45,7 @@ Setup pom.xml in project
 
 | Parameter       | Required | Default Value                | Description                                                                                                                       |
 |-----------------|----------|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| baseUri         | false    | https://api.github.com       | The API endpoint - generally only used with GitHub Enterprise                                                                     |
 | owner           | true     | <>                           | The name of the owner of the targeted repository                                                                                  |
 | repository      | true     | <>                           | The name of the targeted repository                                                                                               |
 | server          | false    | <>                           | References a server configuration in your .m2 settings.xml. This is the preferred way for using the GitHub Api token              |
