@@ -1,3 +1,2 @@
 # Updates
-* Add new plugin parameter skip for skipping the plugin completely
-* Add GitHub Actions to deploy to OSSRH, GitHub Packages and GitHub Release
+* Add new optional parameter baseUri for configuring GitHub Enterprise
