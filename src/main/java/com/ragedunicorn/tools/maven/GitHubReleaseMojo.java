@@ -180,7 +180,11 @@ public class GitHubReleaseMojo extends AbstractMojo {
         getLog().warn("Unable to retrieve settings or server. Falling back to project settings");
       }
     }
-    // fallback to plugin configuration if credentials cannot be retrieved from maven settings.xml
+    // Try the GITHUB_TOKEN environment variable
+    if (authToken == null) {
+      authToken = System.getenv("GITHUB_TOKEN");
+    }
+    // fallback to plugin configuration if credentials cannot be retrieved from maven settings.xml or GITHUB_TOKEN
     if (authToken == null) {
       throw new MojoExecutionException("Unable to read authentication configuration make "
           + "sure to set the authToken property");

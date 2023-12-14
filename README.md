@@ -70,7 +70,7 @@ mvn github-release:github-release
 
 Before the plugin can be used a GitHub personal access token needs to be generated.
 
-See GitHubs [documentation](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) for how to create such a token.
+See GitHub's [documentation](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) for how to create such a token.
 
 **Note:** It is recommended to limit the token to only the permissions that are absolutely needed.
 
@@ -81,7 +81,12 @@ The following permissions are required:
   * repo_deployment  Access deployment status
   * public_repo  Access public repositories
 
-Once the Api token is generated it can be stored inside the maven `.m2/settings.xml`.
+Once the Api token is generated, it can be provided to the plugin via:
+* the `GITHUB_TOKEN` environment variable
+* a maven server
+* a configuration property
+
+To provide it via a maven server, store it stored inside the maven `.m2/settings.xml`.
 
  ```xml
 <server>
@@ -91,6 +96,16 @@ Once the Api token is generated it can be stored inside the maven `.m2/settings.
 ```
 
 Make sure to use `passphrase` instead of `username`and `password` otherwise the plugin will not be able to recognize the token.
+
+Then configure the plugin with the name of the server in the `server` parameter.
+
+```xml
+<configuration>
+  ...
+  <server>github-oauth</server>
+</configuration>
+```
+
 
 It is also possible to set the token with the parameter `authToken` directly inside the plugin configuration. This is however not recommended because those pom files are usually getting commited into source control and potentially leaking the token.
 However, using maven commandline this can be useful being able to overwrite this parameter with the `-D` option.
