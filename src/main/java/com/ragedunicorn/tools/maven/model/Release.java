@@ -43,6 +43,10 @@ public class Release {
 
   private String releaseNotes;
 
+  @SerializedName("generate_release_notes")
+  @Expose
+  private Boolean generateReleaseNotes;
+
   @Expose
   private Boolean draft;
 
@@ -89,6 +93,14 @@ public class Release {
     this.releaseNotes = releaseNotes;
   }
 
+  public Boolean getGenerateReleaseNotes() {
+    return generateReleaseNotes;
+  }
+
+  public void setGenerateReleaseNotes(Boolean generateReleaseNotes) {
+    this.generateReleaseNotes = generateReleaseNotes;
+  }
+
   public Boolean getDraft() {
     return draft;
   }
@@ -113,6 +125,7 @@ public class Release {
         + ", name='" + name + '\''
         + ", body='" + body + '\''
         + ", releaseNotes='" + releaseNotes + '\''
+        + ", generateReleaseNotes='" + generateReleaseNotes + '\''
         + ", draft=" + draft
         + ", prerelease=" + prerelease
         + '}';
@@ -132,12 +145,13 @@ public class Release {
         && Objects.equals(name, release.name)
         && Objects.equals(body, release.body)
         && Objects.equals(releaseNotes, release.releaseNotes)
+        && Objects.equals(generateReleaseNotes, release.generateReleaseNotes)
         && Objects.equals(draft, release.draft)
         && Objects.equals(prerelease, release.prerelease);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tagName, targetCommitish, name, body, releaseNotes, draft, prerelease);
+    return Objects.hash(tagName, targetCommitish, name, body, releaseNotes, generateReleaseNotes, draft, prerelease);
   }
 }

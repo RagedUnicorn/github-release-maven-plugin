@@ -81,6 +81,11 @@ public class GitHubReleaseMojo extends AbstractMojo {
   @Parameter(property = "releaseNotes")
   private String releaseNotes;
 
+  // true to generate release notes automatically - if body/releaseNotes are also specified,
+  // they will be prepended to the generated release notes
+  @Parameter(property = "generateReleaseNotes")
+  private Boolean generateReleaseNotes;
+
   // a list of assets such as .zip to attach to the release
   @Parameter(property = "assets")
   private String[] assets;
@@ -137,6 +142,7 @@ public class GitHubReleaseMojo extends AbstractMojo {
     release.setName(name);
     release.setBody(body);
     release.setReleaseNotes(releaseNotes);
+    release.setGenerateReleaseNotes(generateReleaseNotes);
     release.setDraft(draft);
     release.setPrerelease(prerelease);
 
