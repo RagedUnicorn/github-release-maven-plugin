@@ -58,7 +58,7 @@ public class AssetService {
    * Upload all assets defined to the previously created release.
    *
    * @param uploadUrl The url to upload the assets
-   * @param assets    An list of paths to assets that should get uploaded
+   * @param assets    A list of paths to assets that should get uploaded
    *
    * @throws MojoExecutionException If the httpclient cannot be properly closed
    */
@@ -89,9 +89,9 @@ public class AssetService {
    * @param uploadUrl The url to upload the assets
    * @param assetPath A path to a single asset that should get uploaded
    *
-   * @return The received response from Github after uploading the asset
+   * @return The received response from GitHub after uploading the asset
    *
-   * @throws MojoExecutionException If the request to the Github Api fails
+   * @throws MojoExecutionException If the request to the GitHub Api fails
    */
   private GitHubApiAsset uploadAsset(CloseableHttpClient client, String uploadUrl,
                                      String assetPath) throws MojoExecutionException {
@@ -123,9 +123,9 @@ public class AssetService {
   /**
    * Check if uploading the asset was successful and handle both failure and success.
    *
-   * @param response The response from the Github Api
+   * @param response The response from the GitHub Api
    *
-   * @return The response from the Github Api as POJO
+   * @return The response from the GitHub Api as POJO
    *
    * @throws IOException            If entity cannot be converted to a string
    * @throws MojoExecutionException If upload of the asset fails

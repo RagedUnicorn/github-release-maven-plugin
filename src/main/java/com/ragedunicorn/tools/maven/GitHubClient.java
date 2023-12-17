@@ -85,7 +85,7 @@ public class GitHubClient {
   }
 
   /**
-   * Create an http client.
+   * Create a http client.
    *
    * @return The created http client
    */

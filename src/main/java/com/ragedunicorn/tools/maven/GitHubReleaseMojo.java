@@ -159,9 +159,9 @@ public class GitHubReleaseMojo extends AbstractMojo {
   }
 
   /**
-   * Retrieve the auth token for the Github Api.
+   * Retrieve the auth token for the GitHub Api.
    *
-   * @return A property object containing the Github Api token
+   * @return A property object containing the GitHub Api token
    *
    * @throws MojoExecutionException An exception occurring during the execution of a plugin
    */
@@ -209,8 +209,8 @@ public class GitHubReleaseMojo extends AbstractMojo {
   }
 
   /**
-   * Create a new Github client and set its owner and the targeted repository.
-   * Additionally the authToken for authenticating against the GitHub Api is set.
+   * Create a new GitHub client and set its owner and the targeted repository.
+   * Additionally, the authToken for authenticating against the GitHub Api is set.
    *
    * @return The created GitHub client
    *

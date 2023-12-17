@@ -86,7 +86,7 @@ Once the Api token is generated, it can be provided to the plugin via:
 * a maven server
 * a configuration property
 
-To provide it via a maven server, store it stored inside the maven `.m2/settings.xml`.
+To provide it via a maven server, store it inside the maven `.m2/settings.xml`.
 
  ```xml
 <server>
@@ -106,8 +106,7 @@ Then configure the plugin with the name of the server in the `server` parameter.
 </configuration>
 ```
 
-
-It is also possible to set the token with the parameter `authToken` directly inside the plugin configuration. This is however not recommended because those pom files are usually getting commited into source control and potentially leaking the token.
+It is also possible to set the token with the parameter `authToken` directly inside the plugin configuration. This is however not recommended because those pom files are usually getting committed into source control and potentially leaking the token.
 However, using maven commandline this can be useful being able to overwrite this parameter with the `-D` option.
 
 ```xml
@@ -183,7 +182,7 @@ clean install
 Executing the plugin from a different folder won't work without also fixing the path to the release notes and any additional assets configured.
 
 **Note:** The example module is deliberately not included as default module otherwise it would execute each time the project is built.
-Instead the module can be considered separate and independent. It is an example of how to use the plugin and it is helpful in testing the plugin during development.
+Instead, the module can be considered separate and independent. It is an example of how to use the plugin, and it is helpful in testing the plugin during development.
 
 
 ##### Checkstyle
