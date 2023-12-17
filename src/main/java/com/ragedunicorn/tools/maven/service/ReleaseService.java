@@ -155,11 +155,13 @@ public class ReleaseService {
       release.setTargetCommitish("master");
     }
 
-    if (release.getName() == null || release.getName().isEmpty()) {
+    if ((release.getName() == null || release.getName().isEmpty())
+            && !Boolean.TRUE.equals(release.getGenerateReleaseNotes())) {
       release.setName("");
     }
 
-    if (release.getBody() == null || release.getBody().isEmpty()) {
+    if ((release.getBody() == null || release.getBody().isEmpty())
+            && !Boolean.TRUE.equals(release.getGenerateReleaseNotes())) {
       release.setBody("");
     }
 
@@ -174,6 +176,10 @@ public class ReleaseService {
     if (release.getReleaseNotes() != null) {
       logger.debug("Overwriting body with release notes file content");
       release.setBody(loadReleaseNotes(release.getReleaseNotes()));
+    }
+
+    if (release.getGenerateReleaseNotes() == null) {
+      release.setGenerateReleaseNotes(false);
     }
 
     return release;
