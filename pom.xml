@@ -93,7 +93,7 @@
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
+            <version>1.6.13</version>
             <extensions>true</extensions>
             <configuration>
               <serverId>ossrh</serverId>
@@ -133,7 +133,7 @@
           <plugin>
             <groupId>com.ragedunicorn.tools.maven</groupId>
             <artifactId>github-release-maven-plugin</artifactId>
-            <version>1.0.4</version>
+            <version>1.0.6</version>
             <executions>
               <execution>
                 <id>default-cli</id>
