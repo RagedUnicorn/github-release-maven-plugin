@@ -44,29 +44,28 @@ Setup pom.xml in project
 </project>
 ```
 
-| Parameter              | Required | Default Value                | Description                                                                                                                                           |
-|------------------------|----------|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| baseUri                | false    | https://api.github.com       | The API endpoint - generally only used with GitHub Enterprise                                                                                         |
-| owner                  | true     | <>                           | The name of the owner of the targeted repository                                                                                                      |
-| repository             | true     | <>                           | The name of the targeted repository                                                                                                                   |
-| server                 | false    | <>                           | References a server configuration in your .m2 settings.xml. This is the preferred way for using the GitHub Api token                                  |
-| authToken              | false    | <>                           | Alternative of using a server configuration. The authToken can directly be placed in the plugin configuration                                         |
-| tagName                | true     | <>                           | The full name of the tag that should get used to create the release                                                                                   |
-| name                   | false    | [tagname]                    | The title of the release                                                                                                                              |
-| targetCommitish        | false    | master                       | Determines where the tag is created from if the tag does not already exist. It is usually better to create a tag first                                |
-| body                   | false    | [commit message last commit] | The body of the release. Essentially the release notes. Text is taken as is. For easier formatting use the releaseNotes parameter                     |
-| releaseNotes           | false    | <>                           | Overwrite body parameter. A file containing the text for the release notes                                                                            |
-| generateReleaseNotes   | false    | <>                           | When true, github will automatically generate release notes.  If body/releaseNotes also specified, then they will be prepended to the generated notes |
-| assets                 | false    | <>                           | A list of files that are being uploaded and attached to the release                                                                                   |
-| draft                  | false    | false                        | True to create a draft (unpublished) release, false to create a published one                                                                         |
-| skip                   | false    | false                        | True for skipping the plugin                                                                                                                          |
+| Parameter              | Required | Default Value                | Description                                                                                                                                          |
+|------------------------|----------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| baseUri                | false    | https://api.github.com       | The API endpoint - generally only used with GitHub Enterprise                                                                                        |
+| owner                  | true     | <>                           | The name of the owner of the targeted repository                                                                                                     |
+| repository             | true     | <>                           | The name of the targeted repository                                                                                                                  |
+| server                 | false    | <>                           | References a server configuration in your .m2 settings.xml. This is the preferred way for using the GitHub Api token                                 |
+| authToken              | false    | <>                           | Alternative of using a server configuration. The authToken can directly be placed in the plugin configuration                                        |
+| tagName                | true     | <>                           | The full name of the tag that should get used to create the release                                                                                  |
+| name                   | false    | [tagname]                    | The title of the release                                                                                                                             |
+| targetCommitish        | false    | master                       | Determines where the tag is created from if the tag does not already exist. It is usually better to create a tag first                               |
+| body                   | false    | [commit message last commit] | The body of the release. Essentially the release notes. Text is taken as is. For easier formatting use the releaseNotes parameter                    |
+| releaseNotes           | false    | <>                           | Overwrite body parameter. A file containing the text for the release notes                                                                           |
+| generateReleaseNotes   | false    | <>                           | When true, github will automatically generate release notes. If body/releaseNotes also specified, then they will be prepended to the generated notes |
+| assets                 | false    | <>                           | A list of files that are being uploaded and attached to the release                                                                                  |
+| draft                  | false    | false                        | True to create a draft (unpublished) release, false to create a published one                                                                        |
+| skip                   | false    | false                        | True for skipping the plugin                                                                                                                         |
 
 ### Execute Plugin
 
 ```
 mvn github-release:github-release
 ```
-
 
 ## Setup Api Token
 
