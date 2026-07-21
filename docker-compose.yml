@@ -1,0 +1,51 @@
+# Docker Compose configuration for running quality checks and tests
+#
+# Usage:
+#   docker compose run --rm checkstyle
+#   docker compose run --rm pmd
+#   docker compose run --rm test
+#
+# All services run Maven inside the ragedunicorn/java image and mount the
+# repository root as the working directory. The Maven local repository lives in
+# the named m2-repo volume so dependencies persist across runs. Services run as
+# root because a non-root user cannot overwrite files on Windows bind mounts.
+
+services:
+  checkstyle:
+    image: ragedunicorn/java:${JAVA_JDK_VERSION:-21.0.11-jdk-alpine3.24.1-1}
+    entrypoint: mvn
+    command: checkstyle:checkstyle
+    user: root
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - m2-repo:/tmp/m2-repo
+    environment:
+      - MAVEN_OPTS=-Dmaven.repo.local=/tmp/m2-repo
+
+  pmd:
+    image: ragedunicorn/java:${JAVA_JDK_VERSION:-21.0.11-jdk-alpine3.24.1-1}
+    entrypoint: mvn
+    command: pmd:pmd
+    user: root
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - m2-repo:/tmp/m2-repo
+    environment:
+      - MAVEN_OPTS=-Dmaven.repo.local=/tmp/m2-repo
+
+  test:
+    image: ragedunicorn/java:${JAVA_JDK_VERSION:-21.0.11-jdk-alpine3.24.1-1}
+    entrypoint: mvn
+    command: clean test
+    user: root
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - m2-repo:/tmp/m2-repo
+    environment:
+      - MAVEN_OPTS=-Dmaven.repo.local=/tmp/m2-repo
+
+volumes:
+  m2-repo:

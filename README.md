@@ -204,6 +204,18 @@ github-release-maven-plugin/plugin
 mvn pmd:pmd
 ```
 
+##### Docker Compose
+
+The quality checks and tests can also be run inside Docker with the [ragedunicorn/java](https://hub.docker.com/r/ragedunicorn/java) image, without a local JDK/Maven installation:
+
+```
+docker compose run --rm checkstyle
+docker compose run --rm pmd
+docker compose run --rm test
+```
+
+The Maven local repository is stored in a named volume so dependencies are cached across runs.
+
 ## Help
 
 #### Delete a Release
