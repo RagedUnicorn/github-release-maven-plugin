@@ -143,7 +143,7 @@ public class GitHubApiRelease {
     this.name = name;
   }
 
-  public Boolean getDraft() {
+  public Boolean isDraft() {
     return draft;
   }
 
@@ -159,7 +159,7 @@ public class GitHubApiRelease {
     this.author = author;
   }
 
-  public Boolean getPrerelease() {
+  public Boolean isPrerelease() {
     return prerelease;
   }
 

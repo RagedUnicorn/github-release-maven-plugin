@@ -93,7 +93,7 @@ public class Release {
     this.releaseNotes = releaseNotes;
   }
 
-  public Boolean getGenerateReleaseNotes() {
+  public Boolean isGenerateReleaseNotes() {
     return generateReleaseNotes;
   }
 
@@ -101,7 +101,7 @@ public class Release {
     this.generateReleaseNotes = generateReleaseNotes;
   }
 
-  public Boolean getDraft() {
+  public Boolean isDraft() {
     return draft;
   }
 
@@ -109,7 +109,7 @@ public class Release {
     this.draft = draft;
   }
 
-  public Boolean getPrerelease() {
+  public Boolean isPrerelease() {
     return prerelease;
   }
 

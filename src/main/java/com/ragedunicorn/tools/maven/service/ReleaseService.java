@@ -71,7 +71,6 @@ public class ReleaseService {
     final Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     final String createReleaseJson = gson.toJson(preparedRelease);
     final StringEntity entity = new StringEntity(createReleaseJson, StandardCharsets.UTF_8);
-    CloseableHttpClient httpClient = gitHubClient.getHttpClient();
 
     HttpPost httpPost = new HttpPost();
     URI preparedEndpointUrl = gitHubClient.prepareEndpointUri(ENDPOINT);
@@ -83,8 +82,8 @@ public class ReleaseService {
     httpPost.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
     httpPost.setEntity(entity);
 
-    try {
-      CloseableHttpResponse response = httpClient.execute(httpPost);
+    try (CloseableHttpClient httpClient = gitHubClient.getHttpClient();
+         CloseableHttpResponse response = httpClient.execute(httpPost)) {
       githubApiRelease = responseHandler(response);
 
       if (logger.isInfoEnabled()) {
@@ -96,12 +95,6 @@ public class ReleaseService {
 
     } catch (IOException e) {
       throw new MojoExecutionException("Create release request to GitHub Api failed", e);
-    }
-
-    try {
-      httpClient.close();
-    } catch (IOException e) {
-      throw new MojoExecutionException("Failed to close http client", e);
     }
 
     return githubApiRelease;
@@ -126,7 +119,7 @@ public class ReleaseService {
       GitHubApiClientError clientError = gson.fromJson(responseString, GitHubApiClientError.class);
       List<GitHubApiError> errors = clientError.getErrors();
 
-      if (errors != null) {
+      if (errors != null && logger.isErrorEnabled()) {
         for (GitHubApiError error : errors) {
           logger.error(error.toString());
         }
@@ -156,20 +149,20 @@ public class ReleaseService {
     }
 
     if ((release.getName() == null || release.getName().isEmpty())
-            && !Boolean.TRUE.equals(release.getGenerateReleaseNotes())) {
+            && !Boolean.TRUE.equals(release.isGenerateReleaseNotes())) {
       release.setName("");
     }
 
     if ((release.getBody() == null || release.getBody().isEmpty())
-            && !Boolean.TRUE.equals(release.getGenerateReleaseNotes())) {
+            && !Boolean.TRUE.equals(release.isGenerateReleaseNotes())) {
       release.setBody("");
     }
 
-    if (release.getDraft() == null) {
+    if (release.isDraft() == null) {
       release.setDraft(false);
     }
 
-    if (release.getPrerelease() == null) {
+    if (release.isPrerelease() == null) {
       release.setPrerelease(false);
     }
 
@@ -178,7 +171,7 @@ public class ReleaseService {
       release.setBody(loadReleaseNotes(release.getReleaseNotes()));
     }
 
-    if (release.getGenerateReleaseNotes() == null) {
+    if (release.isGenerateReleaseNotes() == null) {
       release.setGenerateReleaseNotes(false);
     }
 

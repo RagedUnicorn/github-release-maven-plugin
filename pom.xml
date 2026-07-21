@@ -270,7 +270,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>3.10.0</version>
+        <version>3.28.0</version>
         <configuration>
           <rulesets>
             <ruleset>pmd-ruleset.xml</ruleset>
@@ -285,8 +285,8 @@
           </dependency>
           <dependency>
             <groupId>net.sourceforge.pmd</groupId>
-            <artifactId>pmd-vm</artifactId>
-            <version>6.6.0</version>
+            <artifactId>pmd-velocity</artifactId>
+            <version>7.26.0</version>
           </dependency>
           <dependency>
             <groupId>net.sourceforge.pmd</groupId>

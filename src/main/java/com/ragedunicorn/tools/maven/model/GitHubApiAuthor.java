@@ -213,7 +213,7 @@ public class GitHubApiAuthor {
     this.type = type;
   }
 
-  public Boolean getSiteAdmin() {
+  public Boolean isSiteAdmin() {
     return siteAdmin;
   }
 

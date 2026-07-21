@@ -64,19 +64,15 @@ public class AssetService {
    */
   public void uploadAssetsOperation(String uploadUrl, String[] assets)
       throws MojoExecutionException {
-    CloseableHttpClient httpClient = gitHubClient.getHttpClient();
+    try (CloseableHttpClient httpClient = gitHubClient.getHttpClient()) {
+      for (String asset : assets) {
+        GitHubApiAsset response = uploadAsset(httpClient, uploadUrl, asset);
 
-    for (String asset : assets) {
-      GitHubApiAsset response = uploadAsset(httpClient, uploadUrl, asset);
-
-      if (logger.isInfoEnabled()) {
-        logger.info("Uploaded new asset:");
-        logger.info("Name: " + response.getName());
+        if (logger.isInfoEnabled()) {
+          logger.info("Uploaded new asset:");
+          logger.info("Name: " + response.getName());
+        }
       }
-    }
-
-    try {
-      httpClient.close();
     } catch (IOException e) {
       logger.warn("Failed to close http client", e);
     }
@@ -143,8 +139,10 @@ public class AssetService {
 
       List<GitHubApiError> errors = clientError.getErrors();
 
-      for (GitHubApiError error : errors) {
-        logger.error(error.toString());
+      if (errors != null && logger.isErrorEnabled()) {
+        for (GitHubApiError error : errors) {
+          logger.error(error.toString());
+        }
       }
 
       throw new MojoExecutionException("Failed to upload asset - reason: "
