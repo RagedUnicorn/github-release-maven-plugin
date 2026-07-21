@@ -5,6 +5,7 @@
 > A maven plugin for creating GitHub releases including the attachment of assets and release notes
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.ragedunicorn.tools.maven/github-release-maven-plugin.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.ragedunicorn.tools.maven%22%20AND%20a:%22github-release-maven-plugin%22)
+[![CI](https://github.com/RagedUnicorn/github-release-maven-plugin/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/RagedUnicorn/github-release-maven-plugin/actions/workflows/ci.yaml)
 
 ## Usage
 
