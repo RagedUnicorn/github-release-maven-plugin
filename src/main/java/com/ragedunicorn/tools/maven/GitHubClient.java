@@ -22,9 +22,9 @@
 
 package com.ragedunicorn.tools.maven;
 
-import com.google.common.collect.Lists;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.List;
 import org.apache.http.Header;
 import org.apache.http.HttpHeaders;
@@ -104,7 +104,7 @@ public class GitHubClient {
   }
 
   private List<Header> getDefaultHeaders() {
-    return Lists.newArrayList(
+    return Arrays.asList(
         new BasicHeader(HttpHeaders.USER_AGENT, USER_AGENT),
         new BasicHeader(HttpHeaders.ACCEPT, GITHUB_MEDIA_TYPE),
         new BasicHeader(HttpHeaders.AUTHORIZATION, token)
