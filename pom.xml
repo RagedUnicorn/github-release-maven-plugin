@@ -291,7 +291,7 @@
           <dependency>
             <groupId>net.sourceforge.pmd</groupId>
             <artifactId>pmd-xml</artifactId>
-            <version>6.6.0</version>
+            <version>7.26.0</version>
           </dependency>
         </dependencies>
       </plugin>
