@@ -162,9 +162,9 @@ The project is deployed to three different places. Each deployment has its own M
 
 `.github/workflows/github_package_release.yaml` - Releases a package on GitHub
 
-##### OSSRH Package Release
+##### Maven Central Package Release
 
-`.github/workflows/ossrh_package_release.yaml` - Releases a package on OSSRH (Sonatype)
+`.github/workflows/central_package_release.yaml` - Releases a package to Maven Central via the Sonatype Central Portal
 
 All steps are required to make a full release of the plugin but can be done independently of each other. The workflows have to be manually invoked on GitHub.
 
