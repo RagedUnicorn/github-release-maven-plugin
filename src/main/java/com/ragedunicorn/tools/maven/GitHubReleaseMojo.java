@@ -30,12 +30,12 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Server;
 import org.apache.maven.settings.Settings;
 
 
 @Mojo(name = "github-release")
+@SuppressWarnings("PMD.TooManyFields")
 public class GitHubReleaseMojo extends AbstractMojo {
   // true for skipping the plugin completely, false by default
   @Parameter(property = "skip")
@@ -102,9 +102,6 @@ public class GitHubReleaseMojo extends AbstractMojo {
 
   @Parameter(defaultValue = "${settings}", required = true, readonly = true)
   private Settings settings;
-
-  @Parameter(defaultValue = "${project}", required = true, readonly = true)
-  private MavenProject project;
 
   /**
    * Plugin execution callback.
