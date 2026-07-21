@@ -1,0 +1,78 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "schedule": [
+    "on monday"
+  ],
+  "timezone": "UTC",
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
+  "commitMessagePrefix": "chore(deps):",
+  "prConcurrentLimit": 2,
+  "prCreation": "immediate",
+  "automerge": false,
+  "packageRules": [
+    {
+      "matchManagers": [
+        "maven"
+      ],
+      "groupName": "pmd",
+      "description": "Keep maven-pmd-plugin and all PMD language modules grouped so they upgrade together",
+      "matchPackageNames": [
+        "org.apache.maven.plugins:maven-pmd-plugin",
+        "/^net\\.sourceforge\\.pmd:/"
+      ]
+    },
+    {
+      "matchManagers": [
+        "maven"
+      ],
+      "groupName": "ragedunicorn maven plugins",
+      "description": "Group all ragedunicorn Maven plugin updates",
+      "matchPackageNames": [
+        "/^com.ragedunicorn.tools.maven/"
+      ]
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "github actions",
+      "description": "Group all GitHub Actions updates"
+    },
+    {
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "automerge": true,
+      "automergeType": "pr",
+      "description": "Automerge dev dependencies"
+    }
+  ],
+  "maven": {
+    "managerFilePatterns": [
+      "/^pom\\.xml$/"
+    ]
+  },
+  "github-actions": {
+    "managerFilePatterns": [
+      "/^\\.github/workflows/.*\\.ya?ml$/"
+    ]
+  },
+  "prBodyDefinitions": {
+    "Package": "{{depName}}",
+    "Type": "{{depType}}",
+    "Change": "{{updateType}}",
+    "Current": "{{currentVersion}}",
+    "New": "{{newVersion}}",
+    "Age": "{{age}}",
+    "Adoption": "{{adoption}}",
+    "Passing": "{{passing}}",
+    "Confidence": "{{confidence}}"
+  },
+  "postUpdateOptions": []
+}
