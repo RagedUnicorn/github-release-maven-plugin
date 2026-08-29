@@ -1,6 +1,6 @@
 # github-release-maven-plugin
 
-![](./docs/github_release_maven_plugin.png)
+![](./docs/github_release_maven_plugin_banner.svg)
 
 > A maven plugin for creating GitHub releases including the attachment of assets and release notes
 
