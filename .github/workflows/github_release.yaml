@@ -4,6 +4,7 @@ on: [workflow_dispatch]
 jobs:
   github-release-job:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     name: GitHub Release
     steps:
       - name: Checkout
