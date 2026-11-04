@@ -1,17 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "github>RagedUnicorn/renovate-config:base"
   ],
-  "schedule": [
-    "on monday"
-  ],
-  "timezone": "UTC",
-  "labels": [
-    "dependencies",
-    "renovate"
-  ],
-  "commitMessagePrefix": "chore(deps):",
   "prConcurrentLimit": 2,
   "prCreation": "immediate",
   "automerge": false,
